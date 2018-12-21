@@ -15,8 +15,21 @@
 
     (if (eq system-type 'windows-nt)
         (progn
+          ;; (defun my/cygwin-shell-setup ()
+          ;;   "For Cygwin bash under Emacs 20"
+          ;;   (setq comint-scroll-show-maximum-output 'this)
+          ;;   (make-variable-buffer-local 'comint-completion-addsuffix))
+
+          ;; (setq comint-completion-addsuffix t)
+          ;; (setq comint-eol-on-send t)
+          ;; (setq w32-quote-process-args ?\")
+
+          ;; (add-hook 'shell-mode-hook 'my-shell-setup)
+
           (setq shell-file-name (expand-file-name "~/.local/opt/cygwin/bin/bash.exe"))
-          ;; (setq explicit-shell-file-name shell-file-name)
+          (setq explicit-shell-file-name shell-file-name)
+          (setq explicit-bash-args '("--noediting" "-i"))
+
           ;; (setenv "PATH"
           ;; 	      (concat ""
           ;; 		      (replace-regexp-in-string " "
@@ -28,10 +41,8 @@
           ;; 												    (getenv "PATH"))))))
           ;; "--noediting" option prevents interference with the GNU readline library
           ;; "-i" option specifies that the shell is interactive
-          (setq explicit-bash-args '("--noediting" "-i"))
           ;; (setq find-program (expand-file-name "~/.opt/cygwin/bin/find.exe"))
           ))
-
     (setq comint-prompt-read-only t)
     (setq comint-scroll-to-bottom-on-input t)
     (setq comint-scroll-to-bottom-on-output nil)
@@ -41,9 +52,11 @@
     (setq comint-get-old-input
           (lambda () ""))
 
-    (add-to-list 'load-path (expand-file-name "~/.local/opt/helm-shell-history"))
-    (require 'helm-shell-history)
-    (setq-default helm-shell-history-file (expand-file-name "~/.bash_history"))
+    (let* ((dir-name (expand-file-name "~/.local/opt/helm-shell-history")))
+      (when (file-directory-p dir-name)
+        (add-to-list 'load-path dir-name)
+        (require 'helm-shell-history)
+        (setq-default helm-shell-history-file (expand-file-name "~/.bash_history"))))
 
     (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
     (add-hook 'shell-mode-hook 'linum-mode)

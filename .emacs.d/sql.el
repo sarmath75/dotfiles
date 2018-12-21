@@ -1,7 +1,9 @@
 (use-package sql
   :config
   (progn
-    (load-file (expand-file-name "~/.emacs.d/sql-custom.el"))
+    (let* ((file-name (expand-file-name "~/.emacs.d/sql-custom.el")))
+      (when (file-exists-p file-name)
+        (load-file file-name)))
 
     (add-hook 'sql-mode-hook 'company-mode)
     (add-hook 'sql-mode-hook 'smartparens-mode)

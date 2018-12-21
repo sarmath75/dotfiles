@@ -7,26 +7,27 @@
 (require 'cl)
 (package-initialize)
 
-(with-eval-after-load "package"
-  (setq package-archives
-        '(("gnu-elpa"     . "https://elpa.gnu.org/packages/")
-          ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-          ("melpa-stable" . "https://stable.melpa.org/packages/")
-          ("melpa"        . "https://melpa.org/packages/"))
-        package-archive-priorities
-        '(("melpa-stable" . 10)
-          ("gnu-elpa"     . 5)
-          ;; ("marmalade"     . 4)
-          ("MELPA"        . 0)))
+(setq package-archives
+      '(("gnu-elpa"     . "https://elpa.gnu.org/packages/")
+        ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa"        . "https://melpa.org/packages/"))
+      package-archive-priorities
+      '(("melpa-stable" . 10)
+        ("gnu-elpa"     . 5)
+        ;; ("marmalade"     . 4)
+        ("MELPA"        . 0)))
 
-  (let* ((ps '(use-package)))
-    (dolist (p ps)
-      (when (not (package-installed-p p))
-        (package-refresh-contents)
-        (package-install p)))
-    ;; (when (not package-archive-contents)
-    ;;   (package-refresh-contents))
-    ))
+(let* ((ps '(use-package)))
+  (dolist (p ps)
+    (when (not (package-installed-p p))
+      (package-refresh-contents)
+      (package-install p)))
+  ;; (when (not package-archive-contents)
+  ;;   (package-refresh-contents))
+  )
+
+(require 'use-package)
 
 (load-file (expand-file-name "~/.emacs.d/prelude.el"))
 
@@ -160,6 +161,12 @@
     (add-to-list 'revert-without-query "*/Documents/OGTEK/*")
     (add-to-list 'revert-without-query "*/Documents/COF/*")
     (add-to-list 'revert-without-query "*/Documents/PENFED/*")))
+
+(use-package ispell
+  :config
+  (progn
+    (when (eq system-type 'windows-nt)
+      (setq-default ispell-program-name (expand-file-name "~/.local/opt/cygwin/bin/aspell.exe")))))
 
 (use-package flyspell
   :bind

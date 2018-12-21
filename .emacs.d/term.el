@@ -1,7 +1,6 @@
 (use-package term
   :config
   (progn
-    (setq explicit-shell-file-name "/bin/bash")
     (defun my/term-exec-hook ()
       (let* ((buff (current-buffer))
              (proc (get-buffer-process buff)))

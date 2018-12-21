@@ -1,6 +1,7 @@
 (use-package projectile
   :pin melpa-stable
   :ensure t
+  :demand t
   :init
   (progn
     (setq projectile-keymap-prefix (kbd "M-m p"))
@@ -39,9 +40,10 @@
   :pin melpa-stable
   :ensure t
   :after (:all helm projectile)
+  :demand t
   :config
   (progn
-    ;; (require 'helm-projectile)
+    (require 'helm-projectile)
 
     (setq projectile-completion-system 'helm)
     (setq projectile-switch-project-action 'helm-projectile-find-file-dwim)

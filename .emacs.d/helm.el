@@ -1,6 +1,7 @@
 (use-package helm
   :pin melpa-stable
   :ensure t
+  :demand t
   :init
   (progn
     (require 'helm-config))
