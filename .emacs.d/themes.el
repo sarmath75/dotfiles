@@ -17,6 +17,9 @@
   :ensure t
   :config
   (progn
-    (setq circadian-themes '(("6:00" . solarized-light)
-                             ("17:00" . solarized-dark)))
+    (if (eq system-type 'windows-nt)
+        (setq circadian-themes '(("11:00" . solarized-light)
+                                 ("23:00" . solarized-dark)))
+      (setq circadian-themes '(("6:00" . solarized-light)
+                               ("17:00" . solarized-dark))))
     (circadian-setup)))

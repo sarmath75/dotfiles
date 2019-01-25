@@ -46,7 +46,6 @@
     (require 'helm-projectile)
 
     (setq projectile-completion-system 'helm)
-    (setq projectile-switch-project-action 'helm-projectile-find-file-dwim)
     (helm-projectile-on))
   :bind
   (:map projectile-mode-map

@@ -1,0 +1,15 @@
+/elpa/
+/javadoc-cache/
+/server/
+/snippets/
+/url/
+/.emacs.desktop
+/.emacs.desktop.lock
+/cider-repl-history
+/history
+/minibuffer-history
+/network-security.data
+/places
+/projectile-bookmarks.eld
+/projectile.cache
+/recentf
