@@ -13,3 +13,11 @@ ln -s ~/.dotfiles/.emacs.d ~/.emacs.d
 #+BEGIN_SRC shell :shcmd "cmdproxy.exe"
 mklink /D .emacs.d %USERPROFILE%/.dotfiles/.emacs.d
 #+END_SRC
+* AutoHotkey
+** Windows
+#+BEGIN_SRC shell :shcmd "cmdproxy.exe"
+pushd .
+cd %USERPROFILE%\.local\opt
+mklink AutoHotkey.ahk %USERPROFILE%\.dotfiles\.local\opt\AutoHotkey.ahk
+popd
+#+END_SRC
