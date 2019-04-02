@@ -1,6 +1,7 @@
 (use-package company
   :pin melpa-stable
   :ensure t
+  :diminish company-mode
   :config
   (progn
     (setq company-minimum-prefix-length 1)

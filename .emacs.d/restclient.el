@@ -5,6 +5,8 @@
   ("\\.restclient\\'" . restclient-mode)
   :config
   (progn
+    (add-hook 'restclient-mode-hook 'linum-mode)
+    (add-hook 'restclient-mode-hook 'smartparens-strict-mode)
     (add-hook 'restclient-mode-hook 'subword-mode)
     (add-hook 'restclient-mode-hook 'company-mode))
   :bind

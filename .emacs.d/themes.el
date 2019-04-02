@@ -23,3 +23,26 @@
       (setq circadian-themes '(("6:00" . solarized-light)
                                ("17:00" . solarized-dark))))
     (circadian-setup)))
+
+(use-package spaceline
+  :pin melpa-stable
+  :ensure t
+  :demand t
+  :init
+  (progn
+    ;; (setq powerline-default-separator 'arrow-fade)
+    )
+  :config
+  (progn
+    (require 'spaceline-config)
+    (spaceline-spacemacs-theme)))
+
+(use-package spaceline-all-the-icons
+  :pin melpa-stable
+  :ensure t
+  :demand t
+  :after (:all spaceline)
+  :config
+  (progn
+    ;; (spaceline-all-the-icons-theme)
+    ))

@@ -146,6 +146,9 @@
     (setq desktop-auto-save-timeout nil)
     (desktop-save-mode 1)))
 
+(use-package eldoc
+  :diminish eldoc-mode)
+
 (use-package etags
   :config
   (progn
@@ -169,6 +172,7 @@
       (setq-default ispell-program-name (expand-file-name "~/.local/opt/cygwin/bin/aspell.exe")))))
 
 (use-package flyspell
+  :diminish flyspell-mode
   :bind
   (:map flyspell-mode-map
         ("C-," . nil)
@@ -279,6 +283,9 @@
                                       (unsplittable . t)
                                       (left-fringe . 0)))))
 
+(use-package subword
+  :diminish subword-mode)
+
 (use-package "window"
   :config
   (progn
@@ -312,6 +319,14 @@
   (progn
     (setq uniquify-buffer-name-style 'forward)))
 
+(use-package diminish
+  :pin melpa-stable
+  :ensure t
+  :demand t
+  :config
+  (progn
+    (require 'diminish)))
+
 (use-package ace-jump-mode
   :pin melpa-stable
   :ensure t
@@ -333,11 +348,13 @@
 
 (use-package aggressive-indent
   :pin melpa-stable
-  :ensure t)
+  :ensure t
+  :diminish aggressive-indent-mode)
 
 (use-package auto-highlight-symbol
   :pin melpa
-  :ensure t)
+  :ensure t
+  :diminish auto-highlight-symbol-mode)
 
 (use-package expand-region
   :pin melpa-stable
@@ -421,6 +438,7 @@
 (use-package smartparens
   :pin melpa-stable
   :ensure t
+  :diminish smartparens-mode
   :config
   (progn
     (setq sp-navigate-consider-sgml-tags '(html-mode
@@ -498,6 +516,7 @@ START, END and COLUMN are the same as in `indent-region'."
 (use-package undo-tree
   :pin gnu-elpa
   :ensure t
+  :diminish undo-tree-mode
   :init
   (progn
     (global-undo-tree-mode 1))
@@ -531,6 +550,7 @@ START, END and COLUMN are the same as in `indent-region'."
 (use-package which-key
   :pin melpa-stable
   :ensure t
+  :diminish which-key-mode
   :config
   (progn
     (which-key-mode 1)))
@@ -538,6 +558,7 @@ START, END and COLUMN are the same as in `indent-region'."
 (use-package yasnippet
   :pin melpa-stable
   :ensure t
+  :diminish (yas-minor-mode yas-global-mode)
   :config
   (progn
     (yas-reload-all)
@@ -632,14 +653,17 @@ START, END and COLUMN are the same as in `indent-region'."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (elfeed purescript-mode magit yasnippet-snippets psc-ide clojure-snippets cider clojure-mode company-lsp company-nginx nginx-mode python-mode lsp-ui lsp-mode ensime sbt-mode scala-mode yasnippet restclient projectile intero haskell-mode flycheck company markdown-mode yaml-mode which-key web-mode uuid use-package undo-tree solarized-theme smartparens shm psvn multiple-cursors json-mode javadoc-lookup hydra helm-swoop helm-projectile helm-descbinds helm-ag haskell-snippets expand-region company-restclient company-flx circadian auto-highlight-symbol aggressive-indent ace-window ace-jump-mode)))
+    (diminish spaceline spaceline-all-the-icons dired-quick-sort dsvn f elfeed purescript-mode magit yasnippet-snippets psc-ide clojure-snippets cider clojure-mode company-lsp company-nginx nginx-mode python-mode lsp-ui lsp-mode ensime sbt-mode scala-mode yasnippet restclient projectile intero haskell-mode flycheck company markdown-mode yaml-mode which-key web-mode uuid use-package undo-tree solarized-theme smartparens shm psvn multiple-cursors json-mode javadoc-lookup hydra helm helm-swoop helm-projectile helm-descbinds helm-ag haskell-snippets expand-region company-restclient company-flx circadian auto-highlight-symbol aggressive-indent ace-window ace-jump-mode)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(pulse-delay 0.02)
  '(pulse-iterations 2)
  '(safe-local-variable-values
    (quote
-    ((psc-ide-source-globs "src/**/*.purs" ".psc-package/psc-0.12.0/*/*/src/**/*.purs")
+    ((projectile-enable-caching)
+     (projectile-indexing-method quote alien)
+     (projectile-use-git-grep . 1)
+     (psc-ide-source-globs "src/**/*.purs" ".psc-package/psc-0.12.0/*/*/src/**/*.purs")
      (projectile-project-compilation-cmd . "npm run build")
      (projectile-project-compilation-cmd . "stack build --fast")
      (projectile-project-run-cmd . "npm run main")

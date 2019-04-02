@@ -4,17 +4,15 @@
     (put 'dired-find-alternate-file 'disabled nil)
     (cond ((eq system-type 'windows-nt)
            (progn
-             ;; use external ls
              (setq ls-lisp-use-insert-directory-program t)
-             ;; ls program name
              (setq insert-directory-program (expand-file-name "~/.local/opt/cygwin/bin/ls.exe"))
-             ;; Native Windows version of Emacs.
-             ;; (setq dired-listing-switches "-a -F -l")
-             ;; Cygwin version
-             ;; (setq dired-listing-switches "-a -F --group-directories-first -l --time-style=long-iso")
-             (setq dired-listing-switches "-ahlv --group-directories-first --time-style=long-iso")))
+             ;; (setq dired-listing-switches "-ADhlv --group-directories-first --dereference --time-style=long-iso")
+             (setq dired-listing-switches "-ADhlv --time-style=long-iso")))
           (t
-           (setq dired-listing-switches "-ahlv --group-directories-first")))
+           (progn
+             (setq ls-lisp-use-insert-directory-program t)
+             ;; (setq dired-listing-switches "-ahlv --group-directories-first")
+             (setq dired-listing-switches "-ADhlv --time-style=long-iso"))))
     (setq dired-dwim-target t)
 
     (defun my/dired-find-alternate-file ()
@@ -38,6 +36,14 @@
 
 (use-package dired-aux
   :after (:all dired))
+
+(use-package dired-quick-sort
+  :pin melpa-stable
+  :ensure t
+  :after (:all dired)
+  :config
+  (progn
+    (dired-quick-sort-setup)))
 
 (use-package dired-x
   :after (:all dired)

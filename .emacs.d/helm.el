@@ -2,6 +2,7 @@
   :pin melpa-stable
   :ensure t
   :demand t
+  :diminish helm-mode
   :init
   (progn
     (require 'helm-config))
