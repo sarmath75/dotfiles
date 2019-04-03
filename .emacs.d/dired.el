@@ -2,7 +2,12 @@
   :config
   (progn
     (put 'dired-find-alternate-file 'disabled nil)
-    (cond ((eq system-type 'windows-nt)
+    (cond ((eq system-type 'darwin)
+           (progn
+             (setq insert-directory-program "gls")
+             (setq dired-use-ls-dired t)
+             (setq dired-listing-switches "-ahlv --group-directories-first")))
+          ((eq system-type 'windows-nt)
            (progn
              (setq ls-lisp-use-insert-directory-program t)
              (setq insert-directory-program (expand-file-name "~/.local/opt/cygwin/bin/ls.exe"))

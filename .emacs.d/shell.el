@@ -71,6 +71,14 @@
   (:map shell-mode-map
         ("M-r" . helm-shell-history)))
 
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :pin melpa-stable
+    :ensure t
+    :config
+    (progn
+      (exec-path-from-shell-initialize))))
+
 (use-package sh-script
   :config
   (progn
