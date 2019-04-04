@@ -106,10 +106,8 @@
 
 (defun my/push-window-configuration ()
   (interactive)
-  ;; (desktop-save-frameset)
   (push (current-window-configuration) my/window-configuration))
 
 (defun my/pop-window-configuration ()
   (interactive)
-  ;; (desktop-restore-frameset)
   (set-window-configuration (pop my/window-configuration)))

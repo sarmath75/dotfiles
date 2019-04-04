@@ -4,6 +4,7 @@
     (setq org-src-fontify-natively t)
     (setq org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
     (setq org-adapt-indentation nil)
+    (setq org-todo-keywords '((sequence "TODO" "WIP" "|" "DONE")))
     (define-key org-mode-map (kbd "C-,") nil)
 
     (add-hook 'org-mode-hook #'toggle-truncate-lines)

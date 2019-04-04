@@ -142,6 +142,7 @@
 (use-package desktop
   :config
   (progn
+    (setq desktop-load-locked-desktop t)
     (setq desktop-save nil)
     (setq desktop-auto-save-timeout nil)
     (desktop-save-mode 1)))
