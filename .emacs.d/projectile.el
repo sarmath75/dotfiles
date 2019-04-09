@@ -43,11 +43,12 @@
   :demand t
   :config
   (progn
-    (require 'helm-projectile)
+    (helm-projectile-on)
 
-    (setq projectile-completion-system 'helm)
-    (helm-projectile-on))
-  :bind
-  (:map projectile-mode-map
-        ("M-g e" . helm-projectile-recentf)
-        ("M-m g" . helm-projectile-ag)))
+    (define-key projectile-mode-map (kbd "M-g e") 'helm-projectile-recentf)
+    (cond ((eq system-type 'darwin)
+           (define-key projectile-mode-map (kbd "M-m g") 'helm-projectile-grep))
+          ((eq system-type 'windows-nt)
+           (define-key projectile-mode-map (kbd "M-m g") 'helm-projectile-grep))
+          (t
+           (define-key projectile-mode-map (kbd "M-m g") 'helm-projectile-ag)))))
