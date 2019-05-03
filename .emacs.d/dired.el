@@ -48,6 +48,7 @@
   :after (:all dired)
   :config
   (progn
+    (setq dired-quick-sort-group-directories-last ?y)
     (dired-quick-sort-setup)))
 
 (use-package dired-x
