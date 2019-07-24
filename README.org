@@ -21,3 +21,8 @@ cd %USERPROFILE%\.local\opt
 mklink AutoHotkey.ahk %USERPROFILE%\.dotfiles\.local\opt\AutoHotkey.ahk
 popd
 #+END_SRC
+* Hammerspoon
+** MacOS
+#+BEGIN_SRC shell
+ln -s .dotfiles/.hammerspoon .hammerspoon
+#+END_SRC
