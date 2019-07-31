@@ -1,7 +1,7 @@
 (use-package purescript-mode
   :pin melpa
   :ensure t
-  :after (:all smartparens)
+  :after (:all projectile smartparens)
   :defer t
   :config
   (progn
@@ -30,6 +30,12 @@
     ;; (add-hook 'purescript-mode-hook
     ;;           (lambda ()
     ;;             (setq (make-local-variable 'compilation-read-command) nil)))
+
+    (projectile-register-project-type 'purescript
+                                      '("package.json" "bower.json")
+                                      :compile "npm run build:once"
+                                      :test "npm test"
+                                      :run "npm start")
 
     (sp-with-modes '(purescript-mode)
       (sp-local-pair "'" nil :actions nil)

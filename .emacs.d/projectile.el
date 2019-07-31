@@ -11,15 +11,9 @@
     ;; follow symlinks
     ;; (setq projectile-generic-command "find -L . -type f -print0")
     ;; (setq projectile-indexing-method 'native)
-    (setq projectile-enable-caching nil)
+    ;; (setq projectile-enable-caching nil)
     ;; (add-to-list 'projectile-ignored-projects (expand-file-name "~/.stack"))
     ;; (setq projectile-tags-command "/usr/bin/ctags-exuberant -Re -f \"%s\" %s")
-
-    (projectile-register-project-type 'purescript
-                                      '("package.json" "bower.json")
-                                      :compile "npm run build:once"
-                                      :test "npm test"
-                                      :run "npm start")
 
     (setq projectile-test-suffix-function
           (lambda (project-type)
