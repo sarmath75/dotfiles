@@ -4,6 +4,11 @@
 #+BEGIN_SRC shell
 git clone git@github.com:sarmath75/dotfiles.git .dotfiles
 #+END_SRC
+* .Xmodmap
+** Linux
+#+BEGIN_SRC shell
+ln -s .dotfiles/.Xmodmap .Xmodmap
+#+END_SRC
 * Emacs
 ** Linux
 #+BEGIN_SRC shell
