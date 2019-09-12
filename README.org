@@ -26,6 +26,11 @@ cd %USERPROFILE%\.local\opt
 mklink AutoHotkey.ahk %USERPROFILE%\.dotfiles\.local\opt\AutoHotkey.ahk
 popd
 #+END_SRC
+* Autokey
+** Linux
+#+BEGIN_SRC shell
+ln -s ~/.dotfiles/.config/autokey/data/OGTEK/ ~/.config/autokey/data/OGTEK
+#+END_SRC
 * Hammerspoon
 ** MacOS
 #+BEGIN_SRC shell
