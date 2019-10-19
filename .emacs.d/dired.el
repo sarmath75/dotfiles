@@ -79,3 +79,16 @@
   :bind
   (:map dired-mode-map
         ("M-m M-o" . my/toggle-dired-omit)))
+
+(use-package dired-subtree
+  :pin melpa
+  :ensure t
+  :after (:all dired)
+  :bind
+  (:map dired-mode-map
+        ("TAB" . dired-subtree-toggle)))
+
+(use-package dired-narrow
+  :pin melpa
+  :ensure t
+  :after (:all dired))

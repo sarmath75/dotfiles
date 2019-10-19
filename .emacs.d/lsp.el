@@ -21,7 +21,7 @@
 
 (use-package lsp-ui
   :ensure t
-  :pin melpa
+  :pin melpa-stable
   :after (:all lsp-mode)
   :config
   (progn
