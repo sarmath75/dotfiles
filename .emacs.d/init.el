@@ -373,8 +373,8 @@
     ;; (setq flycheck-display-errors-function #'flycheck-display-error-messages)
     ;; (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
     (define-key flycheck-mode-map (kbd "C-c f") 'helm-flycheck)
-    (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
-    (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
+    ;; (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
+    ;; (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
     ;; (flycheck-clojure-setup)
     ;; (flycheck-haskell-setup)
     ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -589,7 +589,7 @@ START, END and COLUMN are the same as in `indent-region'."
 ;; (load-file (expand-file-name "~/.emacs.d/cedet.el"))
 (load-file (expand-file-name "~/.emacs.d/company.el"))
 (load-file (expand-file-name "~/.emacs.d/projectile.el"))
-(load-file (expand-file-name "~/.emacs.d/lsp.el"))
+;; (load-file (expand-file-name "~/.emacs.d/lsp.el"))
 
 (load-file (expand-file-name "~/.emacs.d/dired.el"))
 (load-file (expand-file-name "~/.emacs.d/ediff.el"))
@@ -598,7 +598,7 @@ START, END and COLUMN are the same as in `indent-region'."
 (load-file (expand-file-name "~/.emacs.d/css.el"))
 (load-file (expand-file-name "~/.emacs.d/elfeed.el"))
 ;; (load-file (expand-file-name "~/.emacs.d/gnus.el"))
-(load-file (expand-file-name "~/.emacs.d/haskell.el"))
+;; (load-file (expand-file-name "~/.emacs.d/haskell.el"))
 ;; (load-file (expand-file-name "~/.emacs.d/java.el"))
 (load-file (expand-file-name "~/.emacs.d/javascript.el"))
 (load-file (expand-file-name "~/.emacs.d/lua.el"))
@@ -659,7 +659,7 @@ START, END and COLUMN are the same as in `indent-region'."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (grip-mode dired-narrow dired-subtree company-anaconda flycheck-mypy pyimpsort importmagic pyimport anaconda-mode lua-mode htmlize exec-path-from-shell diminish spaceline spaceline-all-the-icons dired-quick-sort dsvn f elfeed purescript-mode magit yasnippet-snippets psc-ide clojure-snippets cider clojure-mode company-lsp company-nginx nginx-mode python-mode lsp-ui lsp-mode ensime sbt-mode scala-mode yasnippet restclient projectile intero haskell-mode flycheck company markdown-mode yaml-mode which-key web-mode uuid use-package undo-tree solarized-theme smartparens shm psvn multiple-cursors json-mode javadoc-lookup hydra helm helm-swoop helm-projectile helm-descbinds helm-ag haskell-snippets expand-region company-restclient company-flx circadian auto-highlight-symbol aggressive-indent ace-window ace-jump-mode)))
+    (tide typescript-mode grip-mode dired-narrow dired-subtree company-anaconda flycheck-mypy pyimpsort importmagic pyimport anaconda-mode lua-mode htmlize exec-path-from-shell diminish spaceline spaceline-all-the-icons dired-quick-sort dsvn f elfeed purescript-mode magit yasnippet-snippets psc-ide clojure-snippets cider clojure-mode company-lsp company-nginx nginx-mode python-mode lsp-ui lsp-mode ensime sbt-mode scala-mode yasnippet restclient projectile intero haskell-mode flycheck company markdown-mode yaml-mode which-key web-mode uuid use-package undo-tree solarized-theme smartparens shm psvn multiple-cursors json-mode javadoc-lookup hydra helm helm-swoop helm-projectile helm-descbinds helm-ag haskell-snippets expand-region company-restclient company-flx circadian auto-highlight-symbol aggressive-indent ace-window ace-jump-mode)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(pulse-delay 0.02)

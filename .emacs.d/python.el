@@ -17,8 +17,7 @@
     (add-hook 'python-mode-hook 'subword-mode)
     (add-hook 'python-mode-hook 'company-mode)
     (add-hook 'python-mode-hook 'flycheck-mode)
-    ;; (set (make-local-variable 'compile-command)
-    ;;      (concat "python3 " (buffer-name)))
+    ;; (setq-local compile-command (concat "python3 " (buffer-name)))
     ))
 
 (use-package anaconda-mode

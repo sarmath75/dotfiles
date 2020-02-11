@@ -29,7 +29,7 @@
                 (electric-indent-local-mode -1)))
     ;; (add-hook 'purescript-mode-hook
     ;;           (lambda ()
-    ;;             (setq (make-local-variable 'compilation-read-command) nil)))
+    ;;             (setq-local compilation-read-command nil)))
 
     (projectile-register-project-type 'purescript
                                       '("package.json" "bower.json")
