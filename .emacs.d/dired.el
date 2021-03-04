@@ -84,11 +84,9 @@
   :pin melpa
   :ensure t
   :after (:all dired)
+  :config
+  (progn
+    (setq dired-subtree-use-backgrounds nil))
   :bind
   (:map dired-mode-map
         ("TAB" . dired-subtree-toggle)))
-
-(use-package dired-narrow
-  :pin melpa
-  :ensure t
-  :after (:all dired))
