@@ -15,8 +15,6 @@
   (setq scala-indent:default-run-on-strategy scala-indent:reluctant-strategy)
   ;; (setq scala-indent:align-forms t)
   (setq scala-indent:align-parameters t)
-  (define-key scala-mode-map (kbd "C-c M-j") 'ensime)
-  (define-key scala-mode-map (kbd "C-c C-q") 'ensime-shutdown)
   (add-hook 'scala-mode-hook 'linum-mode)
   (add-hook 'scala-mode-hook 'hl-line-mode)
   (add-hook 'scala-mode-hook 'my/toggle-truncate-lines)
@@ -35,14 +33,3 @@
 (use-package sbt-mode
   :pin melpa-stable
   :ensure t)
-
-(use-package ensime
-  :ensure t
-  :pin melpa-stable
-  :config
-  ;; (setq ensime-use-helm t)
-  ;; (defadvice ensime-company-enable (after ensime-company-enable-after activate)
-  ;;   (setq company-minimum-prefix-length 0))
-  ;; (with-eval-after-load "ensime-sbt"
-  ;;   (setq ensime-sbt-perform-on-save "compile"))
-  )
